@@ -1,0 +1,16 @@
+@import "tailwindcss";
+
+@layer base {
+  body {
+    @apply bg-slate-100 text-slate-900 antialiased dark:bg-[#080c14] dark:text-slate-100;
+  }
+}
+
+/* Enhanced contrast rules for component frames */
+.border-slate-200\/80, .border-slate-200 {
+  border-color: rgba(203, 213, 225, 0.9) !important; /* Slightly darker border for high contrast frame definition */
+}
+
+.dark .border-slate-800 {
+  border-color: rgba(30, 41, 59, 0.95) !important;
+}

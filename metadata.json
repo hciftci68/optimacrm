@@ -1,0 +1,6 @@
+{
+  "name": "Compact SMB CRM",
+  "description": "Enterprise-grade Multi-Tenant CRM with Accounts, Contacts, Deals, Omnichannel Inbox, Campaigns, Support Cases, Reports, Workflow Automation, and SaaS Plan Billing.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

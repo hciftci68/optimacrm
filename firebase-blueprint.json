@@ -1,0 +1,137 @@
+{
+  "entities": {
+    "Account": {
+      "title": "Account",
+      "description": "Company or Account entity in CRM",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "name": { "type": "string" },
+        "industry": { "type": "string" },
+        "annualRevenue": { "type": "number" },
+        "phone": { "type": "string" },
+        "website": { "type": "string" },
+        "tenantId": { "type": "string" },
+        "createdAt": { "type": "string" }
+      },
+      "required": ["id", "name", "tenantId"]
+    },
+    "Contact": {
+      "title": "Contact",
+      "description": "Contact or Lead entity in CRM",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "firstName": { "type": "string" },
+        "lastName": { "type": "string" },
+        "email": { "type": "string" },
+        "phone": { "type": "string" },
+        "accountId": { "type": "string" },
+        "leadStatus": { "type": "string" },
+        "leadScore": { "type": "number" },
+        "lifecycleStage": { "type": "string" },
+        "ownerId": { "type": "string" },
+        "tenantId": { "type": "string" },
+        "createdAt": { "type": "string" }
+      },
+      "required": ["id", "firstName", "lastName", "email", "tenantId"]
+    },
+    "Deal": {
+      "title": "Deal",
+      "description": "Sales Deal in Pipeline",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "name": { "type": "string" },
+        "amount": { "type": "number" },
+        "stageId": { "type": "string" },
+        "closeDate": { "type": "string" },
+        "probability": { "type": "number" },
+        "contactId": { "type": "string" },
+        "accountId": { "type": "string" },
+        "assigneeId": { "type": "string" },
+        "tenantId": { "type": "string" },
+        "createdAt": { "type": "string" }
+      },
+      "required": ["id", "name", "amount", "stageId", "tenantId"]
+    },
+    "Task": {
+      "title": "Task",
+      "description": "CRM Activity Task",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "title": { "type": "string" },
+        "dueDate": { "type": "string" },
+        "priority": { "type": "string" },
+        "status": { "type": "string" },
+        "entityType": { "type": "string" },
+        "entityId": { "type": "string" },
+        "assigneeId": { "type": "string" },
+        "tenantId": { "type": "string" },
+        "createdAt": { "type": "string" }
+      },
+      "required": ["id", "title", "tenantId"]
+    },
+    "CaseItem": {
+      "title": "CaseItem",
+      "description": "Support Case Ticket",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "caseNumber": { "type": "string" },
+        "subject": { "type": "string" },
+        "description": { "type": "string" },
+        "status": { "type": "string" },
+        "priority": { "type": "string" },
+        "contactId": { "type": "string" },
+        "assigneeId": { "type": "string" },
+        "sourceChannel": { "type": "string" },
+        "tenantId": { "type": "string" },
+        "createdAt": { "type": "string" }
+      },
+      "required": ["id", "subject", "status", "priority", "tenantId"]
+    },
+    "Campaign": {
+      "title": "Campaign",
+      "description": "Marketing Campaign",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "name": { "type": "string" },
+        "channel": { "type": "string" },
+        "status": { "type": "string" },
+        "targetSegment": { "type": "string" },
+        "tenantId": { "type": "string" },
+        "createdAt": { "type": "string" }
+      },
+      "required": ["id", "name", "channel", "tenantId"]
+    }
+  },
+  "firestore": {
+    "/accounts/{accountId}": {
+      "schema": { "$ref": "#/entities/Account" },
+      "description": "Accounts collection"
+    },
+    "/contacts/{contactId}": {
+      "schema": { "$ref": "#/entities/Contact" },
+      "description": "Contacts collection"
+    },
+    "/deals/{dealId}": {
+      "schema": { "$ref": "#/entities/Deal" },
+      "description": "Deals pipeline collection"
+    },
+    "/tasks/{taskId}": {
+      "schema": { "$ref": "#/entities/Task" },
+      "description": "Tasks collection"
+    },
+    "/cases/{caseId}": {
+      "schema": { "$ref": "#/entities/CaseItem" },
+      "description": "Support cases collection"
+    },
+    "/campaigns/{campaignId}": {
+      "schema": { "$ref": "#/entities/Campaign" },
+      "description": "Marketing campaigns collection"
+    }
+  }
+}
